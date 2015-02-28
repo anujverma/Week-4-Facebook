@@ -12,12 +12,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="photo_actions" id="mTo-h9-ejO">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="ZpQ-ii-4Sa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ghD-Af-TqV">
-                                        <rect key="frame" x="0.0" y="57" width="320" height="403"/>
+                                        <rect key="frame" x="0.0" y="57" width="325" height="452"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -36,14 +40,6 @@
                                     <action selector="didPressDoneButton:" destination="Kwj-EI-V89" eventType="touchUpInside" id="COO-CQ-5bD"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="like_btn" id="ghB-zs-wm3">
-                                <rect key="frame" x="52" y="477" width="17" height="40"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="comment_btn" id="9fL-Fy-eJ6">
-                                <rect key="frame" x="10" y="477" width="17" height="40"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                         </subviews>
                     </view>
                     <tabBarItem key="tabBarItem" title="Requests" image="requests_tab" id="pmV-Iv-QeB"/>
@@ -97,6 +93,14 @@
                                             <outletCollection property="gestureRecognizers" destination="un3-no-VPZ" appends="YES" id="q1l-Nh-7V8"/>
                                         </connections>
                                     </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="wedding3" id="JVp-gP-7fz">
+                                        <rect key="frame" x="161" y="80" width="154" height="103"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="rZo-I7-VfO" appends="YES" id="cK8-hz-Chu"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -118,6 +122,11 @@
                 <tapGestureRecognizer id="un3-no-VPZ" userLabel="Bottom Left Tap Gesture Recognizer">
                     <connections>
                         <action selector="photoWasTapped:" destination="FVm-nH-NxU" id="Wlv-Rl-dEd"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="rZo-I7-VfO" userLabel="Top Right Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="photoWasTapped:" destination="FVm-nH-NxU" id="mia-cw-sIe"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -192,19 +201,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="comment_btn" width="17" height="40"/>
         <image name="compose" width="320" height="46"/>
         <image name="doneButton" width="51" height="27"/>
         <image name="feed_tab" width="27" height="27"/>
         <image name="home_feed" width="320" height="1438"/>
-        <image name="like_btn" width="17" height="40"/>
         <image name="messages_tab" width="27" height="27"/>
         <image name="more_tab" width="27" height="27"/>
         <image name="nav" width="320" height="64"/>
         <image name="notifications_tab" width="27" height="27"/>
+        <image name="photo_actions" width="320" height="44"/>
         <image name="requests_tab" width="27" height="27"/>
         <image name="wedding1" width="320" height="480"/>
         <image name="wedding2" width="480" height="320"/>
+        <image name="wedding3" width="480" height="320"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
