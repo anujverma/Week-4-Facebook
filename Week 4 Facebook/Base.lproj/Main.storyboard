@@ -16,7 +16,7 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="ZpQ-ii-4Sa">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" maximumZoomScale="3" id="ZpQ-ii-4Sa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -45,7 +45,8 @@
                     <tabBarItem key="tabBarItem" title="Requests" image="requests_tab" id="pmV-Iv-QeB"/>
                     <connections>
                         <outlet property="biggerImageView" destination="ghD-Af-TqV" id="I9X-uZ-Wnq"/>
-                        <outlet property="doneButton" destination="rMe-sM-0PR" id="wyM-54-KKf"/>
+                        <outlet property="doneButton" destination="D5n-fz-42L" id="zUA-si-Yb2"/>
+                        <outlet property="photoActionsImage" destination="mTo-h9-ejO" id="wVL-uT-LQv"/>
                         <outlet property="photoScrollView" destination="ZpQ-ii-4Sa" id="q0f-Hd-4bn"/>
                     </connections>
                 </viewController>
@@ -101,6 +102,22 @@
                                             <outletCollection property="gestureRecognizers" destination="rZo-I7-VfO" appends="YES" id="cK8-hz-Chu"/>
                                         </connections>
                                     </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="wedding4" id="Dc2-Qe-veN">
+                                        <rect key="frame" x="161" y="185" width="154" height="103"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Hmf-ND-r4x" appends="YES" id="8bf-Yc-0mW"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="wedding5" id="G8R-dg-NUn">
+                                        <rect key="frame" x="161" y="291" width="154" height="103"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="lgh-Le-g9e" appends="YES" id="tS5-WS-Xhd"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -127,6 +144,16 @@
                 <tapGestureRecognizer id="rZo-I7-VfO" userLabel="Top Right Tap Gesture Recognizer">
                     <connections>
                         <action selector="photoWasTapped:" destination="FVm-nH-NxU" id="mia-cw-sIe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Hmf-ND-r4x" userLabel="Middle Right Gesture Recognizer">
+                    <connections>
+                        <action selector="photoWasTapped:" destination="FVm-nH-NxU" id="VxL-2B-GzY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="lgh-Le-g9e" userLabel="Bottom Right Gesture Recognizer">
+                    <connections>
+                        <action selector="photoWasTapped:" destination="FVm-nH-NxU" id="u10-ct-OkL"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -214,6 +241,8 @@
         <image name="wedding1" width="320" height="480"/>
         <image name="wedding2" width="480" height="320"/>
         <image name="wedding3" width="480" height="320"/>
+        <image name="wedding4" width="480" height="320"/>
+        <image name="wedding5" width="480" height="320"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

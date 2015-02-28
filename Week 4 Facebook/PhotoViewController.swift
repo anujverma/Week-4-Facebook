@@ -12,7 +12,8 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var biggerImageView: UIImageView!
     @IBOutlet weak var photoScrollView: UIScrollView!
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var doneButton: UIImageView!
+    @IBOutlet weak var photoActionsImage: UIImageView!
     
     var detailImage: UIImage!
 
@@ -47,10 +48,22 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView!) {
         // This method is called as the user scrolls
+        
         println("Scrolling happening")
-       doneButton.alpha = 0
+        println(scrollView.contentOffset)
         
-        
+        if (scrollView.contentOffset.y < -30 || scrollView.contentOffset.y > 30){
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.doneButton.alpha = 0
+            self.photoActionsImage.alpha = 0
+        })
+        } else {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.doneButton.alpha = 1.0
+                self.photoActionsImage.alpha = 1.0
+                self.biggerImageView.frame = self.biggerImageView.frame
+            })
+        }
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView!) {
@@ -62,11 +75,18 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         willDecelerate decelerate: Bool) {
             // This method is called right as the user lifts their finger
             println("Scrollign ended")
+            if (scrollView.contentOffset.y < -30 || scrollView.contentOffset.y > 30) {
             dismissViewControllerAnimated(true, completion: nil)
+            }
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView!) {
+        
         // This method is called when the scrollview finally stops scrolling.
+    }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
+        return biggerImageView
     }
 
 }

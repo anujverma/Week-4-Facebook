@@ -116,7 +116,7 @@ class FeedViewController: UIViewController, UIViewControllerTransitioningDelegat
             finalImageView.hidden = true
             finalImageView.contentMode = .ScaleAspectFit
             
-            UIView.animateWithDuration(1.0, animations: { () -> Void in
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
                 toViewController.view.alpha = 1
                 self.blackView.alpha = 0.8
                 self.movingImageView.frame = self.endFrame
