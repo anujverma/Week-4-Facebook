@@ -19,6 +19,7 @@ class FeedViewController: UIViewController, UIViewControllerTransitioningDelegat
     var movingImageView: UIImageView!
     var blackView: UIView!
     var originalSelectedImagePosition: CGRect!
+    var endFrame: CGRect!
    
     
     override func viewDidLoad() {
@@ -106,19 +107,19 @@ class FeedViewController: UIViewController, UIViewControllerTransitioningDelegat
             println("Final image view frame \(finalImageView.frame)")
             
             var height = (320 * movingImageView.image!.size.height) / movingImageView.image!.size.width
-            var endFrame = CGRect(x: 0, y: (view.frame.size.height - height) / 2, width: 320, height: height)
+            endFrame = CGRect(x: 0, y: (view.frame.size.height - height) / 2, width: 320, height: height)
             
             var startFrame = containerView.convertRect(selectedImageView.frame, fromView: feedScrollView)
             movingImageView.frame = startFrame
-            
         
             
             finalImageView.hidden = true
+            finalImageView.contentMode = .ScaleAspectFit
             
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
+            UIView.animateWithDuration(1.0, animations: { () -> Void in
                 toViewController.view.alpha = 1
                 self.blackView.alpha = 0.8
-                self.movingImageView.frame = endFrame
+                self.movingImageView.frame = self.endFrame
                 
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
@@ -132,7 +133,7 @@ class FeedViewController: UIViewController, UIViewControllerTransitioningDelegat
             var photoViewController = fromViewController as PhotoViewController
             var finalImageView = photoViewController.biggerImageView
             
-            movingImageView.frame = finalImageView.frame
+            movingImageView.frame = self.endFrame
             var startFrame = containerView.convertRect(selectedImageView.frame, fromView: feedScrollView)
 
             UIView.animateWithDuration(0.4, animations: { () -> Void in
