@@ -16,6 +16,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var photoActionsImage: UIImageView!
     
     var detailImage: UIImage!
+    var originalBiggerPhotoCenter: CGFloat!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         println("Scrolling happening")
         println(scrollView.contentOffset)
         
-        if (scrollView.contentOffset.y < -30 || scrollView.contentOffset.y > 30){
+        if (scrollView.contentOffset.y < -40 || scrollView.contentOffset.y > 40){
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.doneButton.alpha = 0
             self.photoActionsImage.alpha = 0
@@ -61,7 +62,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.doneButton.alpha = 1.0
                 self.photoActionsImage.alpha = 1.0
-                self.biggerImageView.frame = self.biggerImageView.frame
+                
             })
         }
     }
@@ -75,8 +76,13 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         willDecelerate decelerate: Bool) {
             // This method is called right as the user lifts their finger
             println("Scrollign ended")
-            if (scrollView.contentOffset.y < -30 || scrollView.contentOffset.y > 30) {
+            if (scrollView.contentOffset.y < -40 || scrollView.contentOffset.y > 40) {
             dismissViewControllerAnimated(true, completion: nil)
+            } else {
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    scrollView.contentOffset.y = 0
+                })
+                
             }
     }
     
