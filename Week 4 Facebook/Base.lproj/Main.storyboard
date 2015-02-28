@@ -12,24 +12,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="comment_btn" id="9fL-Fy-eJ6">
-                                <rect key="frame" x="10" y="475" width="17" height="40"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="like_btn" id="ghB-zs-wm3">
-                                <rect key="frame" x="52" y="475" width="17" height="40"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ghD-Af-TqV">
-                                <rect key="frame" x="0.0" y="55" width="320" height="403"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="ZpQ-ii-4Sa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ghD-Af-TqV">
+                                        <rect key="frame" x="0.0" y="57" width="320" height="403"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="doneButton" id="D5n-fz-42L">
-                                <rect key="frame" x="262" y="20" width="51" height="27"/>
+                                <rect key="frame" x="262" y="22" width="51" height="27"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rMe-sM-0PR">
-                                <rect key="frame" x="262" y="18" width="51" height="30"/>
+                                <rect key="frame" x="262" y="20" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,11 +36,21 @@
                                     <action selector="didPressDoneButton:" destination="Kwj-EI-V89" eventType="touchUpInside" id="COO-CQ-5bD"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="like_btn" id="ghB-zs-wm3">
+                                <rect key="frame" x="52" y="477" width="17" height="40"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="comment_btn" id="9fL-Fy-eJ6">
+                                <rect key="frame" x="10" y="477" width="17" height="40"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <tabBarItem key="tabBarItem" title="Requests" image="requests_tab" id="pmV-Iv-QeB"/>
                     <connections>
                         <outlet property="biggerImageView" destination="ghD-Af-TqV" id="I9X-uZ-Wnq"/>
+                        <outlet property="doneButton" destination="rMe-sM-0PR" id="wyM-54-KKf"/>
+                        <outlet property="photoScrollView" destination="ZpQ-ii-4Sa" id="q0f-Hd-4bn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qf-9B-A7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,7 +89,7 @@
                                             <outletCollection property="gestureRecognizers" destination="N2C-7q-4lR" appends="YES" id="x9m-FG-HfN"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="wedding2" id="7UE-Vr-wcs">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="wedding2" id="7UE-Vr-wcs">
                                         <rect key="frame" x="4" y="236" width="154" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <gestureRecognizers/>

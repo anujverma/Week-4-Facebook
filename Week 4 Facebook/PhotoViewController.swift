@@ -8,9 +8,11 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var biggerImageView: UIImageView!
+    @IBOutlet weak var photoScrollView: UIScrollView!
+    @IBOutlet weak var doneButton: UIButton!
     
     var detailImage: UIImage!
 
@@ -19,6 +21,9 @@ class PhotoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         biggerImageView.image = detailImage
+        photoScrollView.delegate = self
+        photoScrollView.contentSize = CGSize(width: 320, height: 1000)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,5 +44,29 @@ class PhotoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func scrollViewDidScroll(scrollView: UIScrollView!) {
+        // This method is called as the user scrolls
+        println("Scrolling happening")
+       doneButton.alpha = 0
+        
+        
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView!) {
+        println("Scrolling started")
+        
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView!,
+        willDecelerate decelerate: Bool) {
+            // This method is called right as the user lifts their finger
+            println("Scrollign ended")
+            dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView!) {
+        // This method is called when the scrollview finally stops scrolling.
+    }
 
 }
